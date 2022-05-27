@@ -44,10 +44,10 @@ catsocialMedia.addEventListener('click', function(){
     document.querySelector('.notifier').textContent ='';
     document.querySelector('.attemptsV').textContent = 5;
     document.querySelector('.tryAgain').classList.add('hide');
+    catsocialMedia.classList.add('btnDesign');  
     catReligion.classList.remove('btnDesign');
     catMedical.classList.remove('btnDesign');
     catSports.classList.remove('btnDesign'); 
-    catsocialMedia.classList.add('btnDesign');  
 })
 catMedical.addEventListener('click', function(){
     mode = true;
@@ -65,7 +65,6 @@ catMedical.addEventListener('click', function(){
     catSports.classList.remove('btnDesign');
     catReligion.classList.remove('btnDesign');
     catsocialMedia.classList.remove('btnDesign');  
-    
 })
 
 catSports.addEventListener('click', function(){
@@ -82,7 +81,6 @@ catSports.addEventListener('click', function(){
     document.querySelector('.tryAgain').classList.add('hide');
     catSports.classList.add('btnDesign');
     catMedical.classList.remove('btnDesign');
-    catReligion.classList.remove('btnDesign');
     catsocialMedia.classList.remove('btnDesign');  
     
 })
@@ -172,7 +170,7 @@ reset.addEventListener('click', function(){
     document.querySelector('.HighScore').textContent = 0;
     document.querySelector('.notifier').textContent ='';
     document.querySelector('.attemptsV').textContent = 5;
-    catReligion.classList.remove('btnDesign');
+    catsocialMedia.classList.remove('btnDesign');
     catSports.classList.remove('btnDesign');
     catMedical.classList.remove('btnDesign');
     mode = false;
