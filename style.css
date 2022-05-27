@@ -185,7 +185,7 @@ h2 {
 .game {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: center;
   margin-left: 2px;
   cursor: pointer;
 }
