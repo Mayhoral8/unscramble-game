@@ -45,7 +45,6 @@ catsocialMedia.addEventListener('click', function(){
     document.querySelector('.attemptsV').textContent = 5;
     document.querySelector('.tryAgain').classList.add('hide');
     catsocialMedia.classList.add('btnDesign');  
-    catReligion.classList.remove('btnDesign');
     catMedical.classList.remove('btnDesign');
     catSports.classList.remove('btnDesign'); 
 })
@@ -63,7 +62,6 @@ catMedical.addEventListener('click', function(){
     document.querySelector('.tryAgain').classList.add('hide');
     catMedical.classList.add('btnDesign');
     catSports.classList.remove('btnDesign');
-    catReligion.classList.remove('btnDesign');
     catsocialMedia.classList.remove('btnDesign');  
 })
 
@@ -174,19 +172,4 @@ reset.addEventListener('click', function(){
     catSports.classList.remove('btnDesign');
     catMedical.classList.remove('btnDesign');
     mode = false;
-})
-
-newWord.addEventListener('click', function(){
-    const randomize = Math.trunc(Math.random()*arrWords.length);
-     arrSingleWrd = arrWords[randomize].toLowerCase();
-    const arrWrdSplit = arrSingleWrd.split('')
-    let rearrange = arrWrdSplit.sort(function(a, b) {return 0.5 - Math.random()});
-    let randomized =  rearrange.join('').toLowerCase();
-    document.querySelector('.word').textContent = randomized;
-    document.querySelector('.word').classList.remove('btnWrong')
-    document.querySelector('.word').classList.remove('btnCorrect');
-    document.querySelector('.input').value = '';
-    document.querySelector('.notifier').textContent ='';
-    document.querySelector('.tryAgain').classList.add('hide');
-    document.querySelector('.attemptsV').textContent--;
 })
