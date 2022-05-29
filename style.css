@@ -1,192 +1,429 @@
-'use-strict'
 
-
-let mode = false;
-let arrWords;
-let sportRaw = 'athletics spectator sport competition game racing gymnastics sportsman soccer rugby union association  football down field offside cycling tennis polo team hockey football skating professional sport  referee league game team sport archery sport professional basketball foul bobsled olympic champion chess badminton position riding Medal track trophy card umpire winner lose finals whistle blow player sets cup';
-let socialRaw =  'favourite downvote twitter facebook network linkedin google viral marketing google event website reach telegraph Follower Like Share Tweet Comment Viral Trend DM Feed Mention Reply Traffic Thread Filter TikTok Snapchat WhatsApp Instagram Retweet Block Meme Skit YouTube  Post Upload Content Video Picture Space Group chat Forum Live Stream Bookmark Profile Status Discord Emoji Fan Fleet Friend Handle Influencer Mention Mute Pin Snap Sticker Selfie WeChat Vlog Verified hashtag shareable social trend media post unfollow';
-const sport = sportRaw.split(' ');
-const social = socialRaw.split(' ');
-const arrCat = {
-    Medical: ['Blood', 'Hospital', 'Medicine', 'Theatre', 'Admire'],
-    sport,
-    social
-};
-const catReligion = document.querySelector('.religion');
-const catSports = document.querySelector('.sports');
-const catMedical = document.querySelector('.medical');
-const catsocialMedia = document.querySelector('.socialMedia');
-
-let word1 = 'Mayor'
-const container = document.querySelector('.container');
-let score = document.querySelector('.Score');
-const rearrangeBtn = document.querySelector('.reArrange');
-let header =  document.querySelector('.word');
-rearrangeBtn.classList.add('btn2');
-let arrSingleWrd;
-const reset = document.querySelector('.reset');
-reset.classList.add('hide')
-const btn = document.querySelector('.btn')
-let noAttempts = document.querySelector('.attemptsV');
-let highscore = document.querySelector('.HighScore');
-const newWord = document.querySelector('.newWord');
-
-header.classList.contains('bt ')
-catsocialMedia.addEventListener('click', function(){
-    mode = true;
-    arrWords = arrCat.social;
-    document.querySelector('.word').classList.remove('btnWrong')
-    document.querySelector('.word').classList.remove('btnCorrect');
-    document.querySelector('.word').textContent = '';
-    document.querySelector('.input').value = '';
-    document.querySelector('.btn').classList.remove('hide');
-    document.querySelector('.Score').textContent = 0;
-    document.querySelector('.notifier').textContent ='';
-    document.querySelector('.attemptsV').textContent = 5;
-    document.querySelector('.tryAgain').classList.add('hide');
-    catsocialMedia.classList.add('btnDesign');  
-    catMedical.classList.remove('btnDesign');
-    catSports.classList.remove('btnDesign'); 
-})
-catMedical.addEventListener('click', function(){
-    mode = true;
-    arrWords = arrCat.Medical;
-    document.querySelector('.word').classList.remove('btnWrong')
-    document.querySelector('.word').classList.remove('btnCorrect');
-    document.querySelector('.word').textContent = '';
-    document.querySelector('.input').value = '';
-    document.querySelector('.btn').classList.remove('hide');
-    document.querySelector('.Score').textContent = 0;
-    document.querySelector('.notifier').textContent ='';
-    document.querySelector('.attemptsV').textContent = 5;
-    document.querySelector('.tryAgain').classList.add('hide');
-    catMedical.classList.add('btnDesign');
-    catSports.classList.remove('btnDesign');
-    catsocialMedia.classList.remove('btnDesign');  
-})
-
-catSports.addEventListener('click', function(){
-    mode = true;
-    arrWords = arrCat.sport;
-    document.querySelector('.word').classList.remove('btnWrong')
-    document.querySelector('.word').classList.remove('btnCorrect');
-    document.querySelector('.word').textContent = '';
-    document.querySelector('.input').value = '';
-    document.querySelector('.btn').classList.remove('hide');
-    document.querySelector('.Score').textContent = 0;
-    document.querySelector('.notifier').textContent ='';
-    document.querySelector('.attemptsV').textContent = 5;
-    document.querySelector('.tryAgain').classList.add('hide');
-    catSports.classList.add('btnDesign');
-    catMedical.classList.remove('btnDesign');
-    catsocialMedia.classList.remove('btnDesign');  
-    
-})
-
-btn.addEventListener('click', function (){
-    if (mode === false){
-        document.querySelector('.notifier').textContent ='Please Select a Category'
-    } else if(mode === true){
-    const randomize = Math.trunc(Math.random()*arrWords.length);
-     arrSingleWrd = arrWords[randomize].toLowerCase();
-    const arrWrdSplit = arrSingleWrd.split('')
-    let rearrange = arrWrdSplit.sort(function(a, b) {return 0.5 - Math.random()});
-    let randomized =  rearrange.join('').toLowerCase();
-    document.querySelector('.word').textContent = randomized;
-    document.querySelector('.btn').classList.add('hide');
-    if(document.querySelector('.word').classList.contains('btnWrong')){
-        document.querySelector('.word').classList.remove('btnWrong');
-    }
-    if(document.querySelector('.word').classList.contains('btnCorrect')){
-        document.querySelector('.word').classList.remove('btnCorrect');
-    }
-    document.querySelector('.notifier').textContent ='';
+body{
+  background-image: linear-gradient(to left, rgb(5, 98, 238), rgb(28, 186, 235));
 }
-})
-
-rearrangeBtn.addEventListener('click', function (){
-    let input = document.querySelector('.input').value;
-    if (input === ''){
-        document.querySelector('.notifier').textContent ='Enter a word⛔'
-    } else{
-      if(input === arrSingleWrd){
-          console.log('correct')
-          score.textContent++;
-          document.querySelector('.input').value = '';
-          document.querySelector('.notifier').textContent ='Correct!✅'
-          document.querySelector('.word').classList.add('btnCorrect')
-          document.querySelector('.word').classList.remove('btnWrong')
-          document.querySelector('.btn').classList.remove('hide');
-          if( Number(score.textContent) > Number(highscore.textContent)){
-            let highscore = document.querySelector('.HighScore');
-             highscore.textContent++;
-          }
-      } else {
-          console.log('Wrong!')
-          //   document.querySelector('.btn').classList.remove('hide');
-          document.querySelector('.word').classList.add('btnWrong')
-          let noAttempts = document.querySelector('.attemptsV');
-          noAttempts.textContent--;
-          document.querySelector('.notifier').textContent ='Wrong!❌'
-          console.log( noAttempts.textContent)
-          document.querySelector('.tryAgain').classList.remove('hide');
-          document.querySelector('.tryAgain').addEventListener('click', function(){
-            document.querySelector('.notifier').textContent ='';
-            document.querySelector('.word').classList.remove('btnWrong')
-            document.querySelector('.input').value = '';
-            document.querySelector('.tryAgain').classList.add('hide');
-            if (Number(noAttempts.textContent) === 2){
-                let hintBtn = document.querySelector('.hintBtn');
-                document.querySelector('.hintBtn').classList.remove('hide');
-                hintBtn.addEventListener('click', function(){
-                    if (hintBtn.classList.contains('hide')){
-                    document.querySelector('.hintBtn').classList.remove('hide');
-                document.querySelector('.hint').classList.remove('hide');
-            }
-            if(Number(noAttempts.textContent) <= 1){
-                document.querySelector('.hintBtn').classList.remove('hide');
-            }
-                document.querySelector('.hintBtn').classList.add('hide');
-                    document.querySelector('.hint').textContent = `-${arrSingleWrd.slice('', 3)}-`
-                })
-                
-            }
-        })
-        if(Number(noAttempts.textContent) === 0){
-              document.querySelector('.hint').classList.add('hide');
-              score.textContent--;
-              noAttempts.textContent = 5;
-              document.querySelector('.input').value = '';
-              document.querySelector('.word').textContent = '';
-              document.querySelector('.notifier').textContent ='';
-              document.querySelector('.tryAgain').classList.add('hide');
-              document.querySelector('.btn').classList.remove('hide');
-              document.querySelector('.word').classList.remove('btnWrong')
-              if(Number(score.textContent) === 0 || Number(score.textContent) < 0){
-                document.querySelector('.attemptsV').textContent = 5;
-                  document.querySelector('.Score').textContent = 0;
-                  console.log(highscore);
-              }
-          }
-            
-        
-    }
+h3{
+  font-family: 'Monoton', cursive;
+  text-align: center;
+  font-weight: 200;
+  color: gold;
 }
-})
+.container {
+display: flex;
+flex-flow: column;
+width: 300px;
+height: 80vh;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
+font-family: "Montserrat", sans-serif;
+border-radius: 10px;
+background-color: rgba(255, 255, 255, 0.35);
+/* backdrop-filter: blur(200px); */
+box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+}
+.categories {
+margin-top: 10px;
+display: flex;
+flex-flow: row;
+justify-content: space-evenly;
+color: white;
+}
+h2 {
+text-align: center;
+font-weight: lighter;
+color: white;
+/* margin-top: 30px; */
+border-radius: 15px;
+width: 80%;
+margin: 60px auto 0px auto;
+height: 60px;
+transition: all ease-in-out 0.2s;
+background-color: rgb(59, 240, 216);
+letter-spacing: 8px;
+line-height: 60px;
+-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+.input {
+margin: 10px auto 0px auto;
+height: 20px;
+text-align: center;
+width: 60%;
+}
+.btn {
+border: 1px solid white;
+width: 100px;
+margin: 50px auto 0px 99.6px;
+/* margin-right: auto; */
+background-color: rgb(59, 240, 216);
+position: absolute;
+border-radius: 4px;
+border: none;
+cursor: pointer;
+/* visibility: hidden; */
+}
+.btn:hover {
+-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+.reArrange {
+margin: 50px auto 0px 110px;
+color: white;
+width: 30%;
+border-radius: 4px;
+border: none;
+cursor: pointer;
+/* margin-bottom: 30px; */
+}
+.reArrange:hover {
+-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+.btn2 {
+margin-top: 50px;
+/* border: 1px solid red; */
+width: 100px;
+margin-left: 100px;
+background-color: rgba(255, 138, 5, 0.842);
+}
 
-reset.classList.remove('hide')
-reset.addEventListener('click', function(){
-    document.querySelector('.word').classList.remove('btnWrong')
-    document.querySelector('.word').classList.remove('btnCorrect');
-    document.querySelector('.word').textContent = '';
-    document.querySelector('.input').value = '';
-    document.querySelector('.btn').classList.remove('hide');
-    document.querySelector('.Score').textContent = 0;
-    document.querySelector('.HighScore').textContent = 0;
-    document.querySelector('.notifier').textContent ='';
-    document.querySelector('.attemptsV').textContent = 5;
-    catsocialMedia.classList.remove('btnDesign');
-    catSports.classList.remove('btnDesign');
-    catMedical.classList.remove('btnDesign');
-    mode = false;
-})
+.scoreContainer {
+display: flex;
+flex-flow: row;
+margin-top: 10px;
+/* border: 1px solid red; */
+height: 50px;
+}
+.scoreVContainer {
+display: flex;
+flex-flow: row;
+height: 30px;
+}
+.btnHighScore {
+margin-left: 180px;
+font-size: 9px;
+font-weight: bold;
+height: 20px;
+margin-top: 30px;
+background-color: rgb(172, 11, 150);
+color: white;
+}
+.btnscore {
+font-size: 11px;
+font-weight: bold;
+height: 20px;
+margin-top: 30px;
+margin-left: 5px;
+background-color: orange;
+color: white;
+}
+.attemptsBox {
+display: flex;
+flex-flow: row;
+text-align: center;
+}
+.attempts {
+margin-left: 100px;
+margin-top: 50px;
+color: orange;
+}
+.Score {
+margin-left: 22px;
+color: white;
+}
+.attemptsV {
+margin-top: 50px;
+margin-left: 6px;
+color: greenyellow;
+font-weight: bold;
+}
+.HighScore {
+margin-left: 230px;
+color: white;
+}
+.hide {
+visibility: hidden;
+display: none;
+transition: ease-in-out;
+}
+.display {
+display: inline-block;
+}
+.btnCorrect {
+border: 1px solid greenyellow;
+font-weight: bold;
+background: linear-gradient(to top, rgb(204, 255, 84), rgb(216, 255, 74));
+color: white;
+}
+.btnWrong {
+/* border: 1px solid rgb(255, 75, 20); */
+font-weight: bold;
+background: linear-gradient(to top, rgb(255, 113, 132), rgb(255, 30, 79));
+color: white;
+}
+.game {
+display: flex;
+flex-flow: row;
+justify-content: center;
+margin-left: 2px;
+cursor: pointer;
+}
+.newWord {
+border-radius: 5px;
+margin-right: 5px;
+cursor: pointer;
+border: none;
+margin-top: 10px;
+}
+.reset {
+border-radius: 5px;
+cursor: pointer;
+border: none;
+margin-top: 10px;
+margin-left: 5px;
+}
+h4 {
+text-align: center;
+height: 150px;
+}
+.tryAgain {
+margin-top: 50px;
+margin-left: -100.5px;
+position: absolute;
+width: 100px;
+border-radius: 4px;
+border: none;
+cursor: pointer;
+}
+.btnDesign {
+-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 10px;
+-moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 10px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 10px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 10px;
+box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 10px;
+background-color: paleturquoise;
+}
+.notifier {
+color: white;
+}
+.categories {
+margin-top: 30px;
+}
+.sports{
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  }
+  .medical{
+    background-color: rgb(255, 198, 148);
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  .socialMedia{
+      background-color: rgb(233, 34, 190);
+      color: white;
+      border-radius: 5px;
+      border: none;
+  }
+  .hintBtn{
+    width: 80px;
+    margin: 0px auto;
+    opacity: 0.8;
+    border-radius: 5px;
+    border: none;
+    font-style: italic;
+    margin-top: 20px;
+    position: absolute;
+    margin-left: 36%;
+    margin-top: 33vh;
+  }
+  .hint{
+    text-align: center;
+    font-style: italic;
+    color: white;
+    letter-spacing: 5px;
+    opacity: 0.7;
+ 
+  }
+@media only screen and (min-width: 900px) {
+  body{
+      background-image: linear-gradient(to bottom, rgb(111, 125, 255), rgb(111, 125, 255));
+
+  }
+.container {
+  display: flex;
+  flex-flow: column;
+  width: 600px;
+  height: 85vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
+  font-family: "Montserrat", sans-serif;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.35);
+  /* backdrop-filter: blur(200px); */
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+}
+.scoreVContainer {
+  display: flex;
+  flex-flow: row;
+  height: 30px;
+  justify-content: space-between;
+}
+.scoreContainer {
+  display: flex;
+  flex-flow: row;
+  margin-top: 10px;
+  justify-content: space-between;
+  height: 50px;
+}
+.btnHighScore {
+  margin-right: 100px;
+  font-size: 9px;
+  font-weight: bold;
+  height: 20px;
+  margin-top: 30px;
+  background-color: rgb(172, 11, 150);
+  color: white;
+}
+.btnscore {
+  font-size: 11px;
+  font-weight: bold;
+  height: 20px;
+  margin-top: 30px;
+  margin-left: 100px;
+  background-color: orange;
+  color: white;
+}
+.Score {
+  margin-left: 120px;
+}
+.HighScore {
+  margin-right: 125px;
+}
+.attemptsBox {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+.attempts {
+  margin-left: 1px;
+  margin-top: 50px;
+  color: orange;
+}
+.btn {
+  border: 1px solid white;
+  width: 100px;
+  margin: 50px auto 0px 250px;
+  background-color: rgb(59, 240, 216);
+  position: absolute;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+.reArrange {
+  margin: 50px auto 0px 250px;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  background-color: purple;
+}
+.tryAgain {
+  margin-top: 50px;
+  margin-left: -100.5px;
+  position: absolute;
+  width: 100px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+}
+.categories {
+  margin-top: 10px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+}
+.sports{
+background-color: orange;
+color: white;
+border: none;
+border-radius: 5px;
+}
+.medical{
+  background-color: rgb(255, 198, 148);
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.newWord {
+  border-radius: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+.reset {
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.socialMedia{
+    background-color: rgb(233, 34, 190);
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+.hintBtn{
+  width: 100px;
+  margin: 0px auto;
+  opacity: 0.8;
+  border-radius: 5px;
+  border: none;
+  font-style: italic;
+  margin-top: 20px;
+  position: absolute;
+  margin-left: 42%;
+  margin-top: 37vh;
+}
+.hint{
+  text-align: center;
+  font-style: italic;
+  color: white;
+  letter-spacing: 5px;
+  opacity: 0.7;
+}
+}
