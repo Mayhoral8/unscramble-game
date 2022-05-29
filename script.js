@@ -117,6 +117,10 @@ rearrangeBtn.addEventListener('click', function (){
           document.querySelector('.word').classList.add('btnCorrect')
           document.querySelector('.word').classList.remove('btnWrong')
           document.querySelector('.btn').classList.remove('hide');
+          document.querySelector('.hint').classList.add('hide');
+           document.querySelector('.hintBtn').classList.add('hide');
+           let noAttempts = document.querySelector('.attemptsV');
+           noAttempts.textContent = 5;
           if( Number(score.textContent) > Number(highscore.textContent)){
             let highscore = document.querySelector('.HighScore');
              highscore.textContent++;
