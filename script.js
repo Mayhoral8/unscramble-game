@@ -135,8 +135,25 @@ rearrangeBtn.addEventListener('click', function (){
             document.querySelector('.word').classList.remove('btnWrong')
             document.querySelector('.input').value = '';
             document.querySelector('.tryAgain').classList.add('hide');
-          })
-          if(Number(noAttempts.textContent) === 0){
+            if (Number(noAttempts.textContent) === 2){
+                let hintBtn = document.querySelector('.hintBtn');
+                document.querySelector('.hintBtn').classList.remove('hide');
+                hintBtn.addEventListener('click', function(){
+                    if (hintBtn.classList.contains('hide')){
+                    document.querySelector('.hintBtn').classList.remove('hide');
+                document.querySelector('.hint').classList.remove('hide');
+            }
+            if(Number(noAttempts.textContent) <= 1){
+                document.querySelector('.hintBtn').classList.remove('hide');
+            }
+                document.querySelector('.hintBtn').classList.add('hide');
+                    document.querySelector('.hint').textContent = `-${arrSingleWrd.slice('', 3)}-`
+                })
+                
+            }
+        })
+        if(Number(noAttempts.textContent) === 0){
+              document.querySelector('.hint').classList.add('hide');
               score.textContent--;
               noAttempts.textContent = 5;
               document.querySelector('.input').value = '';
