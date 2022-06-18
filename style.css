@@ -1,6 +1,7 @@
 
 body{
-  background-image: linear-gradient(to left, rgb(5, 98, 238), rgb(28, 186, 235));
+  /* background-image: linear-gradient(to left, rgb(5, 98, 238), rgb(28, 186, 235)); */
+   background-color: #f3f3f3;
 }
 h3{
   font-family: 'Monoton', cursive;
@@ -12,17 +13,14 @@ h3{
 display: flex;
 flex-flow: column;
 width: 300px;
-height: 80vh;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
+height: 600px;
+margin-left: 25px;
 background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
 font-family: "Montserrat", sans-serif;
 border-radius: 10px;
 background-color: rgba(255, 255, 255, 0.35);
 /* backdrop-filter: blur(200px); */
-box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.123);
 position: fixed;
 }
 .categories {
@@ -55,10 +53,11 @@ box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 .input {
-margin: 10px auto 0px auto;
+margin: 8px auto 0px auto;
 height: 20px;
 text-align: center;
 width: 60%;
+color: #333;
 }
 .btn {
 border: 1px solid white;
@@ -165,14 +164,14 @@ color: white;
 }
 .hide {
 visibility: hidden;
-display: none;
-transition: ease-in-out;
+transition: all 1s;
 }
 .display {
-display: inline-block;
+opacity: 100;
+transition: all 0.2s;
 }
 .btnCorrect {
-border: 1px solid greenyellow;
+border: 1px solid rgba(172, 255, 47, 0.74);
 font-weight: bold;
 background: linear-gradient(to top, rgb(204, 255, 84), rgb(216, 255, 74));
 color: white;
@@ -274,18 +273,17 @@ margin-top: 30px;
   }
 @media only screen and (min-width: 900px) {
   body{
-      background-image: linear-gradient(to bottom, rgb(111, 125, 255), rgb(111, 125, 255));
+      /* background-image: linear-gradient(to bottom, rgb(111, 125, 255), rgb(111, 125, 255)); */
+       background-color: #f3f3f3;
 
   }
 .container {
   display: flex;
   flex-flow: column;
   width: 600px;
-  height: 85vh;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 570px;
+  margin-left: 370px;
+  margin-top: -20px;
   background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
   font-family: "Montserrat", sans-serif;
   border-radius: 10px;
@@ -426,5 +424,35 @@ border-radius: 5px;
   color: white;
   letter-spacing: 5px;
   opacity: 0.7;
+}
+h2 {
+text-align: center;
+font-weight: lighter;
+color: rgb(49, 49, 49);
+/* margin-top: 30px; */
+border-radius: 15px;
+width: 80%;
+margin: 60px auto 0px auto;
+height: 60px;
+transition: all ease-in-out 0.2s;
+background-color: rgb(59, 240, 216);
+letter-spacing: 8px;
+line-height: 60px;
+-webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+}
+.hide {
+/* opacity: 0; */
+transition: all 1s;
+}
+.display {
+opacity: 100;
+transition: all 1s;
 }
 }
