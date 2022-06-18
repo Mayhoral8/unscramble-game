@@ -5,7 +5,9 @@ let mode = false;
 let arrWords;
 let sportRaw = 'athletics spectator sport competition game racing gymnastics sportsman soccer rugby union association  football down field offside cycling tennis polo team hockey football skating professional sport  referee league game team sport archery sport professional basketball foul bobsled olympic champion chess badminton position riding Medal track trophy card umpire winner lose finals whistle blow player sets cup';
 let socialRaw =  'favourite downvote twitter facebook network linkedin google viral marketing google event website reach telegraph Follower Like Share Tweet Comment Viral Trend DM Feed Mention Reply Traffic Thread Filter TikTok Snapchat WhatsApp Instagram Retweet Block Meme Skit YouTube  Post Upload Content Video Picture Space Group chat Forum Live Stream Bookmark Profile Status Discord Emoji Fan Fleet Friend Handle Influencer Mention Mute Pin Snap Sticker Selfie WeChat Vlog Verified hashtag shareable social trend media post unfollow';
-const sport = sportRaw.split(' ');
+const sportFilter = sportRaw.split(' ').filter(currWord => (currWord != '')).map(currWord => (currWord.replace(currWord[0], currWord[0].toLocaleUpperCase())))
+const sport = sportFilter;
+console.log(sport)
 const social = socialRaw.split(' ');
 const arrCat = {
     Medical: ['Blood', 'Hospital', 'Medicine', 'Theatre', 'Admire'],
@@ -23,6 +25,7 @@ let score = document.querySelector('.Score');
 const rearrangeBtn = document.querySelector('.reArrange');
 let header =  document.querySelector('.word');
 rearrangeBtn.classList.add('btn2');
+let arrSingleWrd1;
 let arrSingleWrd;
 const reset = document.querySelector('.reset');
 reset.classList.add('hide')
@@ -88,7 +91,9 @@ btn.addEventListener('click', function (){
         document.querySelector('.notifier').textContent ='Please Select a Category'
     } else if(mode === true){
     const randomize = Math.trunc(Math.random()*arrWords.length);
-     arrSingleWrd = arrWords[randomize].toLowerCase();
+     arrSingleWrd1 = arrWords[randomize]
+        arrSingleWrd = arrSingleWrd1.replace(arrSingleWrd1[0], arrSingleWrd1[0].toUpperCase())
+
     const arrWrdSplit = arrSingleWrd.split('')
     let rearrange = arrWrdSplit.sort(function(a, b) {return 0.5 - Math.random()});
     let randomized =  rearrange.join('').toLowerCase();
@@ -105,7 +110,9 @@ btn.addEventListener('click', function (){
 })
 
 rearrangeBtn.addEventListener('click', function (){
-    let input = document.querySelector('.input').value;
+    let inputRaw = document.querySelector('.input').value;
+    console.log(inputRaw[0])
+    let input =inputRaw.replace(inputRaw[0], inputRaw[0].toLocaleUpperCase())
     if (input === ''){
         document.querySelector('.notifier').textContent ='Enter a word⛔'
     } else{
