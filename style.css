@@ -14,7 +14,7 @@ display: flex;
 flex-flow: column;
 width: 300px;
 height: 600px;
-margin-left: 25px;
+margin-left: 23px;
 background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
 font-family: "Montserrat", sans-serif;
 border-radius: 10px;
@@ -53,7 +53,7 @@ box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 .input {
-margin: 8px auto 0px auto;
+margin: 0px auto 0px auto;
 height: 20px;
 text-align: center;
 width: 60%;
