@@ -37,7 +37,7 @@ color: white;
 /* margin-top: 30px; */
 border-radius: 15px;
 width: 80%;
-margin: 60px auto 0px auto;
+margin: 40px auto 0px auto;
 height: 60px;
 transition: all ease-in-out 0.2s;
 background-color: rgb(59, 240, 216);
@@ -53,7 +53,7 @@ box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 .input {
-margin: 0px auto 0px auto;
+margin: -10px auto 0px auto;
 height: 20px;
 text-align: center;
 width: 60%;
