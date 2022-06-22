@@ -14,8 +14,10 @@ display: flex;
 flex-flow: column;
 width: 300px;
 height: 600px;
-margin-left: 23px;
+margin-left: 25px;
 background: linear-gradient(to bottom, rgb(55, 208, 255), rgb(5, 98, 238));
+background-image: url(unscramble.png);
+background-size: 100%;
 font-family: "Montserrat", sans-serif;
 border-radius: 10px;
 background-color: rgba(255, 255, 255, 0.35);
@@ -40,7 +42,7 @@ width: 80%;
 margin: 40px auto 0px auto;
 height: 60px;
 transition: all ease-in-out 0.2s;
-background-color: rgb(59, 240, 216);
+background-color: rgb(125, 87, 28);
 letter-spacing: 8px;
 line-height: 60px;
 -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
@@ -53,7 +55,7 @@ box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 .input {
-margin: -10px auto 0px auto;
+margin: -100px auto 0px auto;
 height: 20px;
 text-align: center;
 width: 60%;
@@ -64,7 +66,7 @@ border: 1px solid white;
 width: 100px;
 margin: 50px auto 0px 99.6px;
 /* margin-right: auto; */
-background-color: rgb(59, 240, 216);
+background-color: rgb(199, 81, 81);
 position: absolute;
 border-radius: 4px;
 border: none;
@@ -76,8 +78,7 @@ cursor: pointer;
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
--o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-  inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+-o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px, inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
   inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
@@ -105,7 +106,7 @@ margin-top: 50px;
 /* border: 1px solid red; */
 width: 100px;
 margin-left: 100px;
-background-color: rgba(255, 138, 5, 0.842);
+background-color: rgb(253, 95, 18);
 }
 
 .scoreContainer {
@@ -126,7 +127,7 @@ font-size: 9px;
 font-weight: bold;
 height: 20px;
 margin-top: 30px;
-background-color: rgb(172, 11, 150);
+background-color: rgb(134, 12, 117);
 color: white;
 }
 .btnscore {
@@ -146,7 +147,7 @@ text-align: center;
 .attempts {
 margin-left: 100px;
 margin-top: 50px;
-color: orange;
+color: #593b03;
 }
 .Score {
 margin-left: 22px;
@@ -155,7 +156,7 @@ color: white;
 .attemptsV {
 margin-top: 50px;
 margin-left: 6px;
-color: greenyellow;
+color: white;
 font-weight: bold;
 }
 .HighScore {
@@ -173,7 +174,7 @@ transition: all 0.2s;
 .btnCorrect {
 border: 1px solid rgba(172, 255, 47, 0.74);
 font-weight: bold;
-background: linear-gradient(to top, rgb(204, 255, 84), rgb(216, 255, 74));
+background: linear-gradient(to top, rgb(141, 178, 53), rgb(180, 219, 40));
 color: white;
 }
 .btnWrong {
@@ -228,7 +229,7 @@ box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
 background-color: paleturquoise;
 }
 .notifier {
-color: white;
+color: #404040;
 }
 .categories {
 margin-top: 30px;
@@ -240,13 +241,13 @@ margin-top: 30px;
   border-radius: 5px;
   }
   .medical{
-    background-color: rgb(255, 198, 148);
+    background-color: rgb(249, 77, 77);
     color: white;
     border: none;
     border-radius: 5px;
   }
   .socialMedia{
-      background-color: rgb(233, 34, 190);
+      background-color: rgb(105, 241, 255);
       color: white;
       border-radius: 5px;
       border: none;
