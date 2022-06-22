@@ -109,7 +109,7 @@ btn.addEventListener('click', function (){
 }
 })
 
-rearrangeBtn.addEventListener('click', function (){
+const rearrangeFunc = function (){
     let inputRaw = document.querySelector('.input').value;
     console.log(inputRaw[0])
     let input =inputRaw.replace(inputRaw[0], inputRaw[0].toLocaleUpperCase())
@@ -183,7 +183,16 @@ rearrangeBtn.addEventListener('click', function (){
         
     }
 }
+}
+rearrangeBtn.addEventListener('click', rearrangeFunc)
+document.addEventListener('keydown', function(e){
+    console.log(e)
+        if(e.key === 'Enter'){
+            rearrangeFunc();
+        }
 })
+
+ 
 
 reset.classList.remove('hide')
 reset.addEventListener('click', function(){
