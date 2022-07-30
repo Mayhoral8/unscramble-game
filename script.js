@@ -1,4 +1,5 @@
 
+
 'use-strict'
 
 
@@ -11,7 +12,7 @@ const sport = sportFilter;
 // console.log(sport)
 const social = socialRaw.split(' ');
 const arrCat = {
-    Medical: ['Blood', 'Hospital', 'Medicine', 'Theatre', 'Admire'],
+    Medical: ['Blood', 'Hospital', 'Medicine', 'Theatre', 'Treatment', 'Drug', 'Diet', 'Clinic', 'Patient', 'Doctor', 'Ward'],
     sport,
     social
 };
@@ -35,6 +36,7 @@ let noAttempts = document.querySelector('.attemptsV');
 let highscore = document.querySelector('.HighScore');
 const newWord = document.querySelector('.newWord');
 const tilesCon = document.querySelector('.tiles')
+const mainInput = document.querySelector('.input')
 // header.classList.contains('bt ')
 catsocialMedia.addEventListener('click', function(){
     mode = true;
@@ -105,12 +107,14 @@ btn.addEventListener('click', function (){
        const items = Array.from(document.querySelectorAll('.tiles'))
        console.log(items)
        items.map(item => item.style.opacity = '100');
+       mainInput.placeholder = 'Enter word';
     }
         )
     // forEach()
     // document.querySelector('.word').textContent = randomized;
    btn.classList.add('hide');
     document.querySelector('.notifier').textContent ='';
+   
 }
 })
 
@@ -133,6 +137,7 @@ const rearrangeFunc = function (){
            document.querySelector('.hintBtn').classList.add('hide');
            let noAttempts = document.querySelector('.attemptsV');
            noAttempts.textContent = 5;
+           mainInput.placeholder = '';
           if( Number(score.textContent) > Number(highscore.textContent)){
             let highscore = document.querySelector('.HighScore');
              highscore.textContent++;
@@ -209,4 +214,5 @@ reset.addEventListener('click', function(){
     catSports.classList.remove('btnDesign');
     catMedical.classList.remove('btnDesign');
     mode = false;
+    mainInput.placeholder = '';
 })

@@ -1,4 +1,5 @@
 
+
 body{
   /* background-image: linear-gradient(to left, rgb(5, 98, 238), rgb(28, 186, 235)); */
    background-color: #f3f3f3;
@@ -145,7 +146,7 @@ text-align: center;
 .attempts {
 margin-left: 100px;
 margin-top: 50px;
-color: 2white;
+color: black;
 }
 .Score {
 margin-left: 22px;
@@ -234,7 +235,7 @@ margin-top: 30px;
 margin-top: 30px;
 }
 .sports{
-  background-color: orange;
+  background-color: rgb(9, 117, 241);
   color: white;
   border: none;
   border-radius: 5px;
@@ -246,7 +247,7 @@ margin-top: 30px;
     border-radius: 5px;
   }
   .socialMedia{
-      background-color: rgb(105, 241, 255);
+      background-color: rgb(228, 3, 172);
       color: white;
       border-radius: 5px;
       border: none;
@@ -336,7 +337,7 @@ margin-top: 30px;
 .attempts {
   margin-left: 1px;
   margin-top: 50px;
-  color: white;
+  color: black;
 }
 .btn {
   border: 1px solid white;
@@ -375,13 +376,13 @@ margin-top: 30px;
   justify-content: space-evenly;
 }
 .sports{
-background-color: orange;
+background-color: rgb(0, 110, 255);
 color: white;
 border: none;
 border-radius: 5px;
 }
 .medical{
-  background-color: rgb(255, 198, 148);
+  background-color: rgb(224, 36, 11);
   color: white;
   border: none;
   border-radius: 5px;
